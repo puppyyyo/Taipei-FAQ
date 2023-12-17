@@ -1,0 +1,11 @@
+### Python ###
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# model files
+Taipei_FAQ_model/
+
+assets/img/team/
+assets/img/*.png
