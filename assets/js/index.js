@@ -8,14 +8,6 @@ const phoneElement = document.getElementById('phone-info');
 const faxElement = document.getElementById('fax-info');
 const serviceElement = document.getElementById('service-info');
 
-function fillInfo (element, dataField, notFoundMessage) {
-    if (data.unit_info && data.unit_info[dataField]) {
-        element.innerText = data.unit_info[dataField];
-    } else {
-        element.innerText = notFoundMessage;
-    }
-};
-
 form.addEventListener('submit', async (event) => {
     event.preventDefault();
 
@@ -33,6 +25,14 @@ form.addEventListener('submit', async (event) => {
                 const data = await response.json();
 
                 console.log(data);
+
+                const fillInfo = (element, dataField, notFoundMessage) => {
+                    if (data.unit_info && data.unit_info[dataField]) {
+                        element.innerText = data.unit_info[dataField];
+                    } else {
+                        element.innerText = notFoundMessage;
+                    }
+                };
 
                 fillInfo(addressElement, 'address', 'Address not found');
                 fillInfo(phoneElement, 'phone', 'Phone not found');
